@@ -1,0 +1,37 @@
+@(main-content-app)
+
+    //向前翻页tabtitle
+    @up-button
+        &click : upTabtitle( $event )
+
+    @down-button
+        &click : downTabtitle( $event )
+
+    @more-button
+        &click : moreTabTitle( $event )
+
+    @tabs-li | { titles.length>0 }
+        -repeat (item , index) from titles
+        :class : { curTitle==index ? 'cur' : '' }
+
+        #a.btn:eq(0)
+            &click : changeTab(index)
+
+        #a:eq(1)
+            &click : closeTab
+
+    @tab-div
+        -for (item , index) in titles
+        :class : { curTitle==index ? 'cur' : '' }
+    
+    # > a
+
+    $templates
+        path : url()
+
+    $receive
+
+    $trans
+
+    $public
+        a : 'fdsfds'

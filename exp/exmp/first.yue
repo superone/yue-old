@@ -1,0 +1,53 @@
+<style>
+</style>
+
+<template>
+
+</template>
+
+<yue type='text/yx'>
+    version : 1.0.1
+
+    $template : path(./template)
+        subtmp : url( http://www.xxx.com/public/xxx.tpl )
+
+    $mock : path(./mock/data.json)
+        /getSomeThing?{id}{params} : path( ./mock/sub{0}_{1}.json )
+
+    $require
+        subcom : ../pub/subcom
+
+    $outside
+        react
+            sub1 : ../outside/react/sub1
+            sub2 : ../outside/react/sub2
+        angular
+            sub3 : ../outside/angular/sub3
+        vue
+            sub4 : ../outside/vue/sub4
+            
+
+    $injections
+        $ : jquery
+        _ : underscore
+
+    $method
+        upclick : path(./event/upclick)
+                  .param( event , string , number ) //参数类型检测，项目需要载入flow.js
+                  .test( ./test/upclick )
+        downclick : path(./event/downclick)
+                    .param( event , string )
+                    .must( checkSomeThing( $e ) ) -> false() -> true()
+                    .before{ doneThing( $e ) }
+                    .bubble( titledownbtnclick )
+                    .aflter(  )
+    $props
+
+    @(main-app)
+        @up-btn
+            &click : upclick( $e )
+    
+</yue>
+
+<script>
+</script>

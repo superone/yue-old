@@ -1,0 +1,28 @@
+@(main-content-app)
+    @up-button
+        &click : upTabtitle( $event )
+    @down-button
+        &click : downTabtitle( $event )
+    @more-button
+        &click : moreTabTitle( $event )
+    @tabs-li
+        -for (item , index) in titles
+        :class : { curTitle==index ? 'cur' : '' }
+        #a:eq(0)
+            &click : changeTab(index)
+        #a:eq(1)
+            &click : closeTab
+    @tab-div
+        -for (item , index) in titles
+        :class : { curTitle==index ? 'cur' : '' }
+    $receive
+
+    $trans
+
+    $public
+        a : 'fdsfds'
+
+
+@(sibling)
+    $receive
+        a : a

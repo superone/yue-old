@@ -1,0 +1,24 @@
+<div yue-app="main-content-app" class="main-content-right">
+    <div class="tab-title">
+        <a @up-button class='n-bar n-bar-left' href="javascript:;"></a>
+        <ul>
+            <ol class="clearfl" :style="getOlStyle">
+                <li @tabs-li>
+                    <a href="javascript:;">{{item.title}}</a>
+                    <a class="close" href="javascript:;"></a>
+                </li>
+            </ol>
+        </ul>
+        <a @down-button class='n-bar n-bar-right' href="javascript:;"></a>
+        <a @more-button class='n-bar n-bar-more' href="javascript:;"></a>
+    </div>
+    <div class="tab-content right-panel">
+        <div @tab-div class="tab-div" >
+            <font size="50" style="color:red;font-size: 50px;">:{{index}}:{{item.title}}</font>            
+        </div>
+    </div>
+</div>
+
+<div yue-app="sibling">
+        
+</div>

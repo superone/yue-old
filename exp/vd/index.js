@@ -1,0 +1,6 @@
+var dom = {
+    attrs : {
+
+    },
+    children : []
+}

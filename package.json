@@ -1,0 +1,20 @@
+{
+  "name": "yue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "jquery": "^3.2.1",
+    "path": "^0.12.7",
+    "webpack": "^3.5.6"
+  }
+}
