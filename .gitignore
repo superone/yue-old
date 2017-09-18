@@ -2,3 +2,5 @@
 /public
 /dist
 /.vscode
+/bin
+app.js

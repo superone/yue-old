@@ -1,52 +1,97 @@
 <style>
 </style>
 
-<template>
-
+<template name='sub-template'>
+    <a @ok-btn href=''>ok</a>
 </template>
 
-<yue type='text/yx'>
+Component Define Language
+
+<cdl type='text/cdl'>
     version : 1.0.1
 
-    $template : path(./template)
-        subtmp : url( http://www.xxx.com/public/xxx.tpl )
+    $type : yue
+
+    $debug : isDebug
+
+    $receive
+
+    $issued
+
+    $state
+        welcomeMessge : hi , welcome to yue.js! 
+
+    $style[less]
+        .main{
+            a{
+                display:block;
+                padding:5px 10px;
+            }
+        }
+
+    $template
+        <div class="main">
+            <p>
+                {{welcomeMessage}}
+                <sub-template/>
+            </p>                
+
+        </div>
 
     $mock : path(./mock/data.json)
         /getSomeThing?{id}{params} : path( ./mock/sub{0}_{1}.json )
 
-    $require
+    $import
         subcom : ../pub/subcom
 
-    $outside
-        react
-            sub1 : ../outside/react/sub1
-            sub2 : ../outside/react/sub2
-        angular
-            sub3 : ../outside/angular/sub3
-        vue
-            sub4 : ../outside/vue/sub4
-            
-
-    $injections
-        $ : jquery
-        _ : underscore
+    $alias
+        $ : path(jQuery)
+        _ : path(underscore)
 
     $method
         upclick : path(./event/upclick)
                   .param( event , string , number ) //参数类型检测，项目需要载入flow.js
                   .test( ./test/upclick )
+
         downclick : path(./event/downclick)
                     .param( event , string )
-                    .must( checkSomeThing( $e ) ) -> false() -> true()
-                    .before{ doneThing( $e ) }
+                    .inject( $ , _ )
+                    .must( checkSomeThing( $e ) ) -> filed( filed($arg) )
+                    .before( doneThing( $e ) )
                     .bubble( titledownbtnclick )
-                    .aflter(  )
-    $props
+                    .aflter( doSomeThing( $arguments ) )
+                    .test( path(./test/downclick) )
+
+        closeclick : url(/femethod/get/closeclik)
+                    .must( hasModify( $arg ) )
 
     @(main-app)
         @up-btn
             &click : upclick( $e )
+        @down-btn
+            &click : downclick( $e )
+        @close-btn
+            $click : closeclick( $e )
     
+</cdl>
+
+
+<yue>
+    $el : #app-5
+    $vmodel
+        message : hello world!
+            |<br> I'm a!
+    $method 
+        reverseMessage( params ).before().must( true )
+        |.after()
+            this.message = this.message.split('').reverse().join('')
+
+        dosomething : path(./handler/dosomething)
+                      |.params( string )
+                      |.before( reverseMessage( $arg ) )
+    @(root)
+        #button
+            &click : reverseMessage( $e )
 </yue>
 
 <script>

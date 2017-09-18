@@ -1,7 +1,7 @@
 "use strict";
 
-class yue{
-    constructor ( opt ){
-
+class Yue{
+    alert(){
+        alert("dd")
     }
 }
