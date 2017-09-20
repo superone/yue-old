@@ -20,8 +20,9 @@ Component Define Language
 
     $state
         welcomeMessge : hi , welcome to yue.js! 
+        somedata : 'cur'
 
-    $style[less]
+    $style[less]:path(./path/less)
         .main{
             a{
                 display:block;
@@ -29,7 +30,7 @@ Component Define Language
             }
         }
 
-    $template
+    $template : 
         <div class="main">
             <p>
                 {{welcomeMessage}}
@@ -68,6 +69,8 @@ Component Define Language
     @(main-app)
         @up-btn
             &click : upclick( $e )
+            :class : somedata
+            :style : lsls
         @down-btn
             &click : downclick( $e )
         @close-btn

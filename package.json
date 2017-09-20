@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "service" : "node bin/www",
     "build:yue": "webpack src/component/index.js dist/yue.js",
     "build:yue-min": "babel src/component/index.js --out-file dist/yue-min.js"
   },
