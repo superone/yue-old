@@ -90,7 +90,7 @@ class Yue extends Origin{
                         newParams = newParams.split(",");
 
                         if( methods[evtName] ){
-                            dom.addEventListener( evtType , function( e ){
+                            dom.addEventListener( evtType , ( e )=>{
                                 for(let ii=0; ii<newParams.length; ii++){
                                     if( newParams[ii] == "$event"){
                                         newParams[ii] = e;
