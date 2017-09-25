@@ -6,8 +6,9 @@ rollup.rollup({
     plugins: [ babel() ]
 }).then( function ( bundle ) {
     bundle.write({
-        format: 'umd',
+        format: 'cjs',
         moduleName: 'main', //umd或iife模式下，若入口文件含 export，必须加上该属性
+        sourceMap : true,
         dest: 'dist/yue-cli.js'
     });
 });

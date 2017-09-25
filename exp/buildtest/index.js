@@ -1,3 +1,3 @@
-import {data} from "./subfn";
+import {Data} from "./subfn";
 
-alert( data.a);
+alert( Data.a);

@@ -4,4 +4,4 @@ class data{
     }
 }
 
-export const ddd = new data();
+export const Data = new data();

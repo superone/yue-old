@@ -1,7 +1,7 @@
-    //import builder from "./builder/builder";
-    //import dictate from "./dictate";
+    import builder from "./builder/builder";
+    import dictate from "./dictate";
     
-    //import { getMinArr , getDictateObj } from "./unit";
+    import { getMinArr , getDictateObj } from "./unit";
 
     //read the cdl string 
     //return a lines array

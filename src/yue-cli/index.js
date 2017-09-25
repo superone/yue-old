@@ -1,6 +1,6 @@
 "use strict";
 
-//import Yue from "../component";
+import Yue from "../component";
 import { cdlReader , createObject } from "../cdlanguage";
 
 global.Yue = Yue;
